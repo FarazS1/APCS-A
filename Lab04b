@@ -1,0 +1,56 @@
+// Lab04bvPrac.java
+// The AWT Graphics Program
+// This is the student, starting version of Lab04b.
+
+
+import java.awt.*;
+import java.applet.*;
+
+
+public class Lab04bvPrac extends Applet
+{
+
+	public void paint(Graphics g)
+	{
+   
+   this.setSize(800, 600);
+   
+		// DRAW CUBE
+      g.drawRect(50,50,200,200);
+      g.drawRect(125,125,200,200);
+      g.drawLine(50,50,125,125);
+      g.drawLine(250,50,325,125);
+      g.drawLine(50,250,125,325);
+      g.drawLine(250,250,325,325);
+
+		// DRAW SPHERE
+    //Vertical
+      g.drawOval(160,85,50,200);
+      g.drawOval(135,85,100,200);
+      g.drawOval(110,85,150,200);
+      g.drawOval(85,85,200,200);
+    //Horizontal
+      g.drawOval(85,160,200,50);
+      g.drawOval(85,135,200,100);
+      g.drawOval(85,110,200,150);
+      g.drawOval(85,85,200,200);
+      
+    
+
+		// DRAW INSCRIBED/CIRCUMSCRIBED TRIANGLE
+
+
+
+		// DRAW APCS
+
+
+
+		// DRAW PACMEN FLOWER
+
+
+
+	}
+
+}
+
+
