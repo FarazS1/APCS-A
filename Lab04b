@@ -34,19 +34,60 @@ public class Lab04bvPrac extends Applet
       g.drawOval(85,135,200,100);
       g.drawOval(85,110,200,150);
       g.drawOval(85,85,200,200);
-      
-    
+
 
 		// DRAW INSCRIBED/CIRCUMSCRIBED TRIANGLE
-
-
+      g.drawOval(600,400,175,175);//outer circle
+      
+      g.drawLine(600,485,685,575);//triangle
+      g.drawLine(600,485,760,440);
+      g.drawLine(760,440,685,575);
+      
+      g.drawOval(635,465,83,83);//inner circle
+   
+      
+      
 
 		// DRAW APCS
-
+       // A
+         g.setColor( Color.red );
+         
+            g.fillRect( 100 , 400 , 20 , 100 );
+            g.fillRect( 100 , 400 , 60 , 20 );
+            g.fillRect( 100 , 440 , 60 , 20 );
+            g.fillRect( 140 , 400 , 20 , 100 );
+         
+         // P
+         g.setColor( Color.orange );
+         
+            g.fillRect( 180 , 400 , 20 , 100 );
+            g.fillRect( 180 , 400 , 60 , 20 );
+            g.fillRect( 180 , 440 , 60 , 20 );
+            g.fillRect( 220 , 400 , 20 , 60 );
+         
+         // C
+         g.setColor( Color.yellow );
+         
+            g.fillRect( 260 , 400 , 20 , 100 );
+            g.fillRect( 260 , 400 , 60 , 20 );
+            g.fillRect( 260 , 480 , 60 , 20 );
+         
+         // S
+         g.setColor( Color.green );
+         
+            g.fillRect( 340 , 400 , 60 , 20 );
+            g.fillRect( 340 , 400 , 20 , 60 );
+            g.fillRect( 340 , 440 , 60 , 20 );
+            g.fillRect( 380 , 440 , 20 , 60 );
+            g.fillRect( 340 , 480 , 60 , 20 );
 
 
 		// DRAW PACMEN FLOWER
-
+      g.setColor(Color.gray);
+      g.fillArc( 633 , 250 , 50 , 50 , 45 , 270 );  // right
+      g.fillArc( 600 , 217 , 50 , 50 , 135 , 270 ); // top
+      g.fillArc( 567 , 250 , 50 , 50 , 225 , 270 ); // left
+      g.fillArc( 600 , 283 , 50 , 50 , 315 , 270 ); // bottom
 
 
 	}
