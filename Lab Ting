@@ -1,0 +1,26 @@
+public class Lab05vPrac extends Applet
+{
+	public void paint(Graphics g)
+	{
+		int width = 980;
+		int height = 630;
+
+		g.drawRect(10,10,width,height);
+      
+      //Draw bottom-left corner
+      
+      //Draw bottom-right corner
+     
+      //Draw top-right corner
+      int y2=10;
+      for(int x1=10;x1<=990&&y2<=640;x1+=20)
+         {
+         g.drawLine(x1,10,980,y2);
+         y2+=20;
+         
+      }
+      
+      //Draw top-left corner
+      
+}
+}
