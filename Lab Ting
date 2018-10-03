@@ -1,4 +1,8 @@
-public class Lab05vPrac extends Applet
+import java.awt.*;
+import java.applet.*;
+
+
+public class Lab05vst extends Applet
 {
 	public void paint(Graphics g)
 	{
@@ -6,21 +10,108 @@ public class Lab05vPrac extends Applet
 		int height = 630;
 
 		g.drawRect(10,10,width,height);
+      int xVar = 10;
+      int yVar = 10;
+      int ySum = 0;
+      
+       //Draw bottom-right corner
+      xVar = 10;
+      yVar = 10;
+      ySum = 0;
+
+     for(int xSum=0;xSum<=width&&ySum<=height;xSum+=20)
+       {
+       g.drawLine( xVar + xSum, 640, 990, 640-ySum);
+         ySum+=13;
+         }
       
       //Draw bottom-left corner
-      
-      //Draw bottom-right corner
+      xVar = 10;
+      yVar = 10;
+      ySum = 0;
+
+     for(int xSum=0;xSum<=width&&ySum<=height;xSum+=20)
+       {
+       g.drawLine( xVar + xSum, 640, 10, yVar + ySum);
+         ySum+=13;
+         }
      
       //Draw top-right corner
-      int y2=10;
-      for(int x1=10;x1<=990&&y2<=640;x1+=20)
-         {
-         g.drawLine(x1,10,980,y2);
-         y2+=20;
-         
-      }
+     xVar = 10;
+     yVar = 10;
+     ySum = 0;
+
+     for(int xSum=0;xSum<=width&&ySum<=height;xSum+=20)
+       {
+       g.drawLine( xVar + xSum, 10, 10, 640 - ySum);
+         ySum+=13;
+         }
       
       //Draw top-left corner
+     xVar = 10;
+     yVar = 10;
+     ySum = 0;
+
+     for(int xSum=0;xSum<=width&&ySum<=height;xSum+=20)
+       {
+       g.drawLine( xVar + xSum, 10, 990, yVar + ySum);
+         ySum+=13;
+         }
+         
+//Inner
+//Copy
+   
+   int halfWidth = width / 2; //halfWidth = 490
+   int halfHeight = height/2; //halfHeight = 315
+   g.drawRect(255,165,halfWidth,halfHeight);
+         
+   //Draw Bottom-right Corner
+   xVar = 255;
+   yVar = 165;
+   ySum = 0;
+   
+   for(int xSum=0;xSum<=halfWidth&&ySum<=halfHeight;xSum+=10)
+      {
+      g.drawLine( xVar + xSum, halfHeight+yVar, halfWidth+xVar, (halfHeight+yVar)-ySum);
+         ySum+=6.5;
+         }
+   
+   //Draw Bottom-left Corner
+   xVar = 255;
+   yVar = 165;
+   ySum = 0;
+   
+   for(int xSum=0;xSum<=halfWidth&&ySum<=halfHeight;xSum+=10)
+      {
+      g.drawLine( xVar + xSum, halfHeight+yVar, 255, 165+ySum);
+         ySum+=7;
+         }
       
+   //Draw Top-left Corner
+   xVar = 255;
+   yVar = 165;
+   ySum = 0;
+   
+   for(int xSum=0;xSum<=halfWidth&&ySum<=halfHeight;xSum+=10)
+      {
+      g.drawLine( xVar + xSum, 165, 255, (halfHeight+yVar)-ySum);
+         ySum+=7;
+         }
+
+   //Draw Top-right Corner
+   xVar = 255;
+   yVar = 165;
+   ySum = 0;
+   
+   for(int xSum=0;xSum<=halfWidth&&ySum<=halfHeight;xSum+=10)
+      {
+      g.drawLine( xVar + xSum, 165, halfWidth+xVar, 165+ySum);
+         ySum+=6.5;
+         }
+
+      
+         
+	}
 }
-}
+
+
