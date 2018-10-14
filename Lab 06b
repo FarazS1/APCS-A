@@ -1,0 +1,90 @@
+// Draw Grid
+		g.drawRect(10,10,780,580);
+		g.drawLine(400,10,400,590);
+		g.drawLine(10,300,790,300);
+		
+		// Draw Random Lines
+      
+      
+      for(int l=1;l<=100;l++)
+      {  int red = (int) (Math.random()*256) ;
+         int green = (int) (Math.random()*256) ;
+         int blue = (int) (Math.random()*256) ; 
+         
+         g.setColor(new Color(red,green,blue));
+      
+
+         int x1=(int)(Math.random()*390+10);
+         int y1=(int)(Math.random()*290+10);
+         int x2=(int)(Math.random()*390+10);
+         int y2=(int)(Math.random()*290+10);
+         
+         g.drawLine(x1,y1,x2,y2);
+         
+         
+		}
+		
+		// Draw Random Squares
+      
+      for (int k=1;k<=100;k++)
+      {  int red = (int) (Math.random()*256) ;
+         int green = (int) (Math.random()*256) ;
+         int blue = (int) (Math.random()*256) ; 
+         
+         g.setColor(new Color(red,green,blue));
+      
+         int x1 = (int) (Math.random()*340+400);
+         int y1 = (int) (Math.random()*240+10);
+         
+         g.fillRect(x1,y1,50,50);
+      }
+
+
+		// Draw Random Circles
+      int j = 0;
+      while(j<=100)
+      {  int red = (int) (Math.random()*256) ;
+         int green = (int) (Math.random()*256) ;
+         int blue = (int) (Math.random()*256) ; 
+         
+         g.setColor(new Color(red,green,blue));
+    
+         int x1 = (int) (Math.random()*390+10);
+         int y1 = (int) (Math.random()*290+300);
+         int side = (int) (Math.random()*200);
+         
+         if((x1+side<400)&&(y1+side<590))
+         {  g.drawOval(x1,y1,side,side);
+            j++;
+         }
+       
+      }
+
+		
+		// Draw 3-D Box
+
+	   g.setColor(Color.red);
+      g.fillRect(595,400,100,100);
+	
+	   g.setColor(Color.blue);
+      Polygon tri = new Polygon();
+      tri.addPoint(645,400);
+      tri.addPoint(645,350);
+      tri.addPoint(695,400);
+      g.fillPolygon(tri);
+      
+      g.setColor(Color.yellow);
+      Polygon trap = new Polygon();
+      trap.addPoint(645,400);
+      trap.addPoint(645,350);
+      trap.addPoint(545,350);
+      trap.addPoint(595,400);
+      g.fillPolygon(trap);
+
+	   g.setColor(Color.green);
+      Polygon romb = new Polygon();
+      romb.addPoint(595,400);
+      romb.addPoint(545,350);
+      romb.addPoint(545,450);
+      romb.addPoint(595,500);
+      g.fillPolygon(romb);
