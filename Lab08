@@ -18,7 +18,7 @@ public class Lab08vPrac
 			System.out.println();
 			System.out.println("Entered String:     " + str);
 			System.out.println("Palindrome:         " + Palindrome.isPal(str));
-			System.out.println("Almost Palindrome:  " + Palindrome.almostPal(str));	  // used only for the 100 point version
+			System.out.println("Almost Palindrome:  " + Palindrome.almostPal(str));	  // used only for the 100 point version\
 			System.out.print("Do you wish to repeat this program [Y/N]?  ===>>  ");
 			String repeat = input.nextLine();
 			notFinished = (repeat.equals("Y")) || (repeat.equals("y"));
@@ -139,7 +139,8 @@ class Palindrome
          
          else if (x == false)
          {
-                                                      //FIGURE OUT HOW TO DELETE A SINGLE CHARACTER FROM STRING IF IT IS FALSE
+            s = s.substring(0,k-1) + s.substring(k+1);
+            k++;                                          //FIGURE OUT HOW TO DELETE A SINGLE CHARACTER FROM STRING IF IT IS FALSE
          }
       
       }
@@ -164,4 +165,3 @@ class Palindrome
 	}
 
 }
-
