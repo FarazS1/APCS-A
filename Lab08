@@ -45,7 +45,10 @@ class Palindrome
 	{
       s = s.toLowerCase();
       Boolean x = true;
+      Boolean ult = true;
+      Boolean yUlt = true;
       String rev = Palindrome.getReverse(s);
+      
       if (rev.equals(s))
       {
          x = true;
@@ -54,9 +57,39 @@ class Palindrome
       {
          x = false;
       }
+
+      
+      s = s.toUpperCase();
+      int k = 0;
+      while (k < s.length())
+      {
+         String letWord = s.substring(k,k+1);
+         Boolean y = Palindrome.isLetter(letWord);
+       
+         if (y == true)
+         {
+            k++;
+            yUlt = true;
+         }
          
-         
-      return x;      
+         else 
+         {
+            k = s.length();
+            yUlt = false; 
+         }
+      }
+      
+        
+      if (x==true && yUlt==true)
+      {
+         ult = true;
+      }
+      else
+      {
+         ult = false;
+      }
+      
+      return ult;      
 	}  
    
    private static String getReverse(String s)
@@ -109,7 +142,7 @@ class Palindrome
       
       
       return x;
-   }
+  }
    
    
    
@@ -124,28 +157,23 @@ class Palindrome
 	 */
 	private static String purge(String s)
 	{
-      s = s.trim();
-      s = s.toUpperCase();
-      int k = 0;
-      while (k <= s.length())
+      String trimmed = s.trim();
+      String str = trimmed.toUpperCase();
+      String purged = "";
+      
+      for(int k = 0; k < str.length(); k++)
       {
-         String letWord = s.substring(k,k+1);
-         Boolean x = Palindrome.isLetter(letWord);
-       
-         if (x == true)
+         if(Palindrome.isLetter(str.substring(k,k+1)) == true)
          {
-            k++;
-         }
+            purged = purged + str.substring(k,k+1);
          
-         else if (x == false)
-         {
-            s = s.substring(0,k-1) + s.substring(k+1);
-            k++;                                          //FIGURE OUT HOW TO DELETE A SINGLE CHARACTER FROM STRING IF IT IS FALSE
          }
+      
       
       }
       
-      return s;        
+            
+      return purged;        
 	}
   
   
@@ -161,7 +189,20 @@ class Palindrome
     
 	public static boolean almostPal(String s)
 	{
-      return true;      // This statement is provided to allow initial compiling.
-	}
+      String purgedStr = Palindrome.purge(s);
+      String rev = Palindrome.getReverse(purgedStr);
+      Boolean finAlmostPal = true;
+      
+      if (Palindrome.isPal(s)==true)
+      {
+         finAlmostPal = false;
+      }
+      else 
+      {
+         finAlmostPal = rev.equals(purgedStr);
+      }
+         
+      return finAlmostPal;     
+   }
 
 }
