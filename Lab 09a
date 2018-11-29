@@ -32,9 +32,9 @@ public class Lab09av100Prac
 
 class Rational
 {
-   private static int num;
-   private static int den;
-   private static int gcf;
+   private int num;
+   private int den;
+   private int gcf;
 
    public Rational(int n, int d)
    {
