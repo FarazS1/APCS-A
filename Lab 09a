@@ -36,10 +36,10 @@ class Rational
    private int den;
    private int gcf;
 
-   public Rational(int n, int d)
+   public Rational(int num, int den)
    {
-      num = n;
-      den = d;
+      this.num = num;
+      this.den = den;
    }
    
 	public void displayData()
