@@ -6,13 +6,13 @@
 import java.util.Scanner;
 
 
-public class Lab11av100Prac
+public class Lab11av100yeet
 {
 	public static void main(String[] args)
 	{
 		// This main method needs additions for the 100 point version.
 		Scanner input = new Scanner(System.in);
-		final int MAX = 100;
+		final int MAX = 1000;
 		boolean primes[];
 		primes = new boolean[MAX];
      
@@ -40,7 +40,6 @@ public class Lab11av100Prac
          if ((x) == 0)
          {
             primes[j] = false;
-            System.out.println(j);
          }
          
          else 
@@ -49,6 +48,38 @@ public class Lab11av100Prac
          }   
       }
       
+      
+      for (int ke = 4; ke<=(primes.length - 1);  ke++)
+      {
+         
+         if(primes[ke] == true)
+         {
+            for (int j = 3; j < ke; j++)
+            {
+               int y = ke % j;
+               if ((y) == 0)
+               {
+                  primes[ke] = false;
+                  j = ke;
+
+               }
+               
+               else
+               {
+                  primes[ke] = true;
+               }   
+            
+            }
+            
+         }
+         
+         
+         else
+         {
+            primes[ke] = false;
+         }   
+      }   
+                                                                                           
 
       
 
@@ -59,7 +90,16 @@ public class Lab11av100Prac
 		System.out.println("\n\nPRIMES BETWEEN 1 AND "+ primes.length);
 		System.out.println();
       
+      for(int j = 2; j<=(primes.length-1); j++)
+      {
+         if(primes[j] == true)
+         System.out.println(j);
+      
+      }
       
 
 	}
+   
+}   
+
 
