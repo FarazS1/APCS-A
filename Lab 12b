@@ -1,0 +1,139 @@
+// Lab12bvst.java     This is the Student-Starting file. 
+// This version is implemented with "Dynamic Arrays"
+// This assignment pertains to some of the "Elevens" AP Lab Materials
+//***************************************************************************
+// The "Elevens" AP Lab is created for the College Board APCS
+// curriculum by Michael Clancy, Robert Glen Martin and Judith Hromcik.
+// Leon Schram has altered some of the "Elevens" files to focus on 
+// specific CS topics as the "Elevens" Lab is integrated into the curriculum.
+
+
+
+import java.util.ArrayList;
+
+public class Lab12bst
+{
+	public static void main(String[] args)
+	{   
+      Deck deck = new Deck();            // DO NOT TOUCH THE main METHOD!! 
+      System.out.println(deck);
+	}
+}
+
+
+class Deck 
+{
+	private ArrayList<Card> cards;
+	private int size;
+   
+ 
+
+	public Deck() 
+   {
+      size = 52;
+		cards = new ArrayList<Card>();
+      int x = 0;
+      
+      
+      
+        ArrayList <String> ranks = new <String> ArrayList();
+   
+   ranks.add(0, "Two");
+   ranks.add(1, "Three");
+   ranks.add(2, "Four");
+   ranks.add(3, "Five");
+   ranks.add(4, "Six");
+   ranks.add(5, "Seven");
+   ranks.add(6, "Eight");
+   ranks.add(7, "Nine");
+   ranks.add(8, "Ten");
+   ranks.add(9, "Jacks");
+   ranks.add(10, "Queens");
+   ranks.add(11, "Kings");
+   ranks.add(12, "Ace");
+   
+   ArrayList <String> suits = new <String> ArrayList();
+   
+   suits.add(0, "Clubs");
+   suits.add(1, "Diamonds");
+   suits.add(2, "Hearts");
+   suits.add(3, "Spades");
+   
+   
+
+      
+   while(x < size)  { 
+      for (int i = 0; i < ranks.size(); i++) {
+            for (int j = 0; j < suits.size(); j++) {
+               if (i>=9 && i<=11)
+               cards.add(x, new Card(ranks.get(i),suits.get(j),10));
+               
+               else if (i == 12)
+               cards.add(x, new Card(ranks.get(i),suits.get(j),11));
+               
+               else 
+               cards.add(x, new Card(ranks.get(i),suits.get(j),i+2));
+               
+               x++;
+            }
+        }
+
+	   }    
+   }
+   
+   
+   
+   
+   
+   public String toString()
+   {
+      String output = "";
+      
+      for (int k = 0; k<cards.size(); k++)
+      {output = output + cards.get(k).toString() + "\n";}
+   
+      return output;
+   }
+ }
+
+
+ //DO NOT TOUCH THE CARD CLASS.  ALL WORK FOR THIS LAB IS DONE IN THE DECK CLASS.
+ 
+class Card
+{
+   private String suit;
+   private String rank;
+   private int value;
+
+   public Card(String s, String r, int v)
+   {
+      suit = s;
+      rank = r;
+      value = v;
+   }
+
+   public String getSuit()       { return suit; }
+   public String getRank()       { return rank; }
+   public int getValue()         { return value; }
+   
+   public void setSuit(String s) { suit = s; }
+   public void setRank(String r) { rank = r; }
+   public void setValue(int v)   { value = v; } 
+   
+   public String toString()
+   {
+      return "[" + suit + ", " + rank + ", " + value + "]";
+   }
+   
+   public boolean matches(Card otherCard) 
+   {
+		return otherCard.getSuit().equals(this.suit)
+			 && otherCard.getRank().equals(this.rank)
+			 && otherCard.getValue() == this.value;
+	}
+}
+
+
+
+
+
