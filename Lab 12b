@@ -25,18 +25,20 @@ class Deck
 {
 	private ArrayList<Card> cards;
 	private int size;
+	
+	private ArrayList<Card> shuffled;
    
  
 
 	public Deck() 
    {
       size = 52;
-		cards = new ArrayList<Card>();
+	  cards = new ArrayList<Card>();
       int x = 0;
       
       
       
-        ArrayList <String> ranks = new <String> ArrayList();
+      ArrayList <String> ranks = new <String> ArrayList();
    
    ranks.add(0, "Two");
    ranks.add(1, "Three");
@@ -76,11 +78,49 @@ class Deck
                
                x++;
             }
-        }
+	   }
 
-	   }    
+	   }  
+	   
+	   //shuffle();                ///// CALL TO SHUFFLE METHOD #1
+	   
+	   //shuffleTwo();                ///// CALL TO SHUFFLE METHOD #2
+	   
+	   //shuffleThree();                ///// CALL TO SHUFFLE METHOD #3
+	   
    }
    
+   
+   public void shuffle() { 
+        for (int i = 0; i < size; i++) {
+            int r = i + (int) (Math.random() * (size-i));
+            Card tempee = cards.get(r);
+            cards.set(r, cards.get(i));
+            cards.set(i, tempee);
+        }
+      }
+      
+    public void shuffleTwo() {
+        for (int k =0; k<=100; k++) { 
+            for (int i = 0; i < size; i++) {
+                int r = i + (int) (Math.random() * (size-i));
+                Card tempee = cards.get(r);
+                cards.remove(r);
+                cards.add(tempee);
+            }
+        }
+    }
+    
+    public void shuffleThree() {
+        for (int i = 0; i < size; i++) {
+            int r = i + (int) (Math.random() * (size-i));
+            int x = (int) (Math.random()*size);
+            Card tempee = cards.get(r);
+            cards.remove(r);
+            cards.add(x, tempee);
+        }
+    }  
+ 
    
    
    
@@ -95,6 +135,7 @@ class Deck
       return output;
    }
  }
+
 
 
  //DO NOT TOUCH THE CARD CLASS.  ALL WORK FOR THIS LAB IS DONE IN THE DECK CLASS.
