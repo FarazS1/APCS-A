@@ -1,0 +1,160 @@
+// Lab15avst.java
+// 02-28-15 by Leon Schram
+// The "Odd Magic Square" Program
+// This is the student, starting version of the Lab15 assignment.
+
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class Lab15avst
+{
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+
+      System.out.print("Enter the odd# size of the Magic Square -->  ");
+      int size = input.nextInt();
+      MagicSquare magic = new MagicSquare(size);
+
+      magic.computeMagicSquare();
+      magic.displayMagicSquare();
+   	magic.checkRows();          // for 90 & 100 Point Version Only
+   	magic.checkColumns();		 // for 90 & 100 Point Version Only
+   	magic.checkDiagonals();	 	 // for 90 & 100 Point Version Only
+	}
+}
+
+
+class MagicSquare
+{
+	private int size;
+	private int magic[][];
+	private DecimalFormat output;
+
+	public MagicSquare(int s)
+	{
+		size = s;
+		magic = new int[size][size];
+		output = new DecimalFormat("000");
+	}
+
+	public void computeMagicSquare()
+	{
+      int i = 0;
+      int j = (magic.length-1)/2;
+      magic[i][j] = 1;
+      
+      
+      
+      
+      for(int k = 2; k <= Math.pow(size,2); k++) {
+     
+      if((k-1)%size==0)
+      {
+         i+=1;
+         magic[i][j] = k;
+      
+      }
+      
+      else 
+      {
+         i-=1;
+         j+=1;
+         if(i<0){
+         i=magic[0].length-1;
+         }
+         else if(j==magic.length){
+         j = 0;
+         }
+          magic[i][j] = k;
+      }
+      
+      }
+
+	}
+
+	public void displayMagicSquare()
+	{
+		System.out.println();
+		System.out.println(size + "x" + size + " Magic Square");
+		System.out.println("==================");
+		System.out.println();
+      
+      
+       for(int r = 0; r < magic.length; r++)
+      {
+         for(int c = 0; c < magic[r].length; c++)
+            {
+            String yeet = output.format(magic[r][c]);
+            System.out.print(yeet + " ");
+            }
+           System.out.println();
+       }     
+
+	}
+
+	public void checkRows()
+	{
+		System.out.println();
+		System.out.println("Checking Rows");
+		System.out.println("=============");
+		System.out.println();
+      int x = 0;
+      for(int r = 0; r < magic.length; r++)
+      {
+        for(int c = 0; c < magic[size-1].length; c++)
+            {
+            String yeet = output.format(magic[r][c]);
+            System.out.print(yeet + " + ");
+            x+=magic[r][c];
+            }
+           System.out.print("= " + x);
+           System.out.println();
+           x = 0;
+       }        
+	}
+
+	public void checkColumns()
+	{
+		System.out.println();
+		System.out.println("Checking Columns");
+		System.out.println("================");
+		System.out.println();
+       
+      int x = 0;
+      for(int c = 0; c < magic[size-1].length; c++)
+      {
+        for(int r = 0; r < magic.length; r++)
+            {
+            String yeet = output.format(magic[r][c]);
+            System.out.print(yeet + " + ");
+            x+=magic[r][c];
+            }
+           System.out.print("= " + x);
+           System.out.println();
+           x = 0;
+       }     
+
+   }
+
+	public void checkDiagonals()
+	{
+		System.out.println();
+		System.out.println("Checking Diagonals");
+		System.out.println("==================");
+		System.out.println();
+      int x = 0;
+      for(int k = 0; k<magic.length; k++)
+      {
+         String yeet = output.format(magic[k][k]);
+            System.out.print(yeet + " + ");
+            x+=magic[k][k];
+
+      }
+      System.out.print("= " + x);
+           System.out.println();
+	}
+   
+}
+
