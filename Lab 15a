@@ -154,7 +154,24 @@ class MagicSquare
       }
       System.out.print("= " + x);
            System.out.println();
+	   
+	   int y =  0
+	   int sum = 0;
+	for(int j = magic[0].length-1; j>=0; j++) 
+	{
+	    String yeet = output.format(magic[j][k]);
+            System.out.print(yeet + " + ");
+            sum+=magic[j][k];
+	    y++;
+
 	}
+	   System.out.print("= " + sum);
+           System.out.println();
+	}
+	}
+	
+	
+	
    
 }
 
