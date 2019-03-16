@@ -106,10 +106,12 @@ class MagicSquare
         for(int c = 0; c < magic[size-1].length; c++)
             {
             String yeet = output.format(magic[r][c]);
-            System.out.print(yeet + " + ");
+            System.out.print(yeet);
+	    if(c < magic[size-1].length - 1)
+	    { System.out.print(" + "); }
             x+=magic[r][c];
             }
-           System.out.print("= " + x);
+           System.out.print(" = " + x);
            System.out.println();
            x = 0;
        }        
@@ -128,10 +130,12 @@ class MagicSquare
         for(int r = 0; r < magic.length; r++)
             {
             String yeet = output.format(magic[r][c]);
-            System.out.print(yeet + " + ");
+            System.out.print(yeet);
+	    if(r < magic.length - 1)
+	    { System.out.print(" + "); }
             x+=magic[r][c];
             }
-           System.out.print("= " + x);
+           System.out.print(" = " + x);
            System.out.println();
            x = 0;
        }     
@@ -148,11 +152,13 @@ class MagicSquare
       for(int k = 0; k<magic.length; k++)
       {
          String yeet = output.format(magic[k][k]);
-            System.out.print(yeet + " + ");
+            System.out.print(yeet);
+	    if(k<magic.length - 1)
+	    { System.out.print(" + "); }
             x+=magic[k][k];
 
       }
-      System.out.print("= " + x);
+      System.out.print(" = " + x);
            System.out.println();
 	   
 	   int y =  0;
@@ -160,12 +166,14 @@ class MagicSquare
 	for(int j = magic[0].length-1; j>=0; j--) 
 	{
 	    String yeet = output.format(magic[j][y]);
-            System.out.print(yeet + " + ");
+            System.out.print(yeet);
+	    if(j>0)
+	    { System.out.print(" + "); }
             sum+=magic[j][y];
 	    y++;
 
 	}
-	   System.out.print("= " + sum);
+	   System.out.print(" = " + sum);
            System.out.println();
 	
 	}
