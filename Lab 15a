@@ -157,11 +157,11 @@ class MagicSquare
 	   
 	   int y =  0
 	   int sum = 0;
-	for(int j = magic[0].length-1; j>=0; j++) 
+	for(int j = magic[0].length-1; j>=0; j--) 
 	{
-	    String yeet = output.format(magic[j][k]);
+	    String yeet = output.format(magic[j][y]);
             System.out.print(yeet + " + ");
-            sum+=magic[j][k];
+            sum+=magic[j][y];
 	    y++;
 
 	}
