@@ -155,7 +155,7 @@ class MagicSquare
       System.out.print("= " + x);
            System.out.println();
 	   
-	   int y =  0
+	   int y =  0;
 	   int sum = 0;
 	for(int j = magic[0].length-1; j>=0; j--) 
 	{
