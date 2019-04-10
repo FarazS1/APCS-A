@@ -1,0 +1,119 @@
+// Lab17bvst.java
+// The student, starting version of the Lab17b assignment.
+
+
+import java.awt.*;
+import java.applet.*;
+
+
+public class Lab17bvst extends Applet
+{
+
+	public void paint (Graphics g)
+	{
+		drawSquare1(g,1000,650);
+      
+      
+      
+
+	}
+
+	public void drawSquare1(Graphics g, int maxX, int maxY)
+	{
+		int midX = maxX/2;
+		int midY = maxY/2;
+		int startWidth = maxX/4;
+		int startHeight = maxY/4;
+		int tlX = midX - (startWidth/2);
+		int tlY = midY - (startHeight/2);
+		g.fillRect(tlX,tlY,startWidth,startHeight); //x = 375 , y = 244 , width = 250 , height = 162 .
+      drawFirstSquares(g, tlX, tlY, startWidth, startHeight);
+	}
+
+	public void delay(long n)
+	{
+		n *= 1000;
+		long startDelay = System.nanoTime();
+		long endDelay = 0;
+		while (endDelay - startDelay < n)
+			endDelay = System.nanoTime();
+	}
+   
+   
+   private void drawFirstSquares(Graphics g, int tlX, int tlY, int startWidth, int startHeight)
+   {
+      g.setColor(Color.BLUE);
+      g.fillRect(tlX + startWidth, tlY - (startHeight/2), startWidth/2, startHeight/2);
+      drawSquares(g, tlX + startWidth, tlY - (startHeight/2), startWidth/2, startHeight/2, 0);
+      
+      g.setColor(Color.RED);
+      g.fillRect(tlX - (startWidth/2), tlY - (startHeight/2), startWidth/2, startHeight/2);
+      drawSquares(g, tlX - (startWidth/2), tlY - (startHeight/2), startWidth/2, startHeight/2, 1);
+      
+      g.setColor(Color.GREEN);
+      g.fillRect(tlX - (startWidth/2), tlY + startHeight, startWidth/2, startHeight/2);
+      drawSquares(g, tlX - (startWidth/2), tlY + startHeight, startWidth/2, startHeight/2, 2);
+      
+      g.setColor(Color.YELLOW);
+      g.fillRect(tlX + startWidth, tlY + startHeight, startWidth/2, startHeight/2);
+      drawSquares(g, tlX + startWidth, tlY + startHeight, startWidth/2, startHeight/2, 3);
+   
+   }
+   
+   private void drawSquares(Graphics g, int xPos, int yPos, int width, int height, int sqNum)
+   {
+      sqNum = (sqNum + 2) % 4;
+     
+      if(sqNum != 0) 
+      {
+         if(height<=1) {
+         g.setColor(Color.BLUE);
+         g.fillRect(xPos + width, yPos - (height/2), width/2, height/2); }
+         else {
+         g.setColor(Color.BLUE);
+         g.fillRect(xPos + width, yPos - (height/2), width/2, height/2);
+         delay(10000);
+         drawSquares(g, xPos + width, yPos - (height/2), width/2, height/2, 0); }
+      }
+      
+      if(sqNum != 1) 
+      {
+         if(height<=1) {
+         g.setColor(Color.RED);
+         g.fillRect(xPos - (width/2), yPos - (height/2), width/2, height/2);   }
+         else {
+         g.setColor(Color.RED);
+         g.fillRect(xPos - (width/2), yPos - (height/2), width/2, height/2);
+         delay(10000);   
+         drawSquares(g, xPos - (width/2), yPos - (height/2), width/2, height/2, 1); }
+      }
+      
+      if(sqNum != 2) 
+      {
+         if(height<=1) {
+         g.setColor(Color.GREEN);
+         g.fillRect(xPos - (width/2), yPos + height, width/2, height/2); }
+         else {
+         g.setColor(Color.GREEN);
+         g.fillRect(xPos - (width/2), yPos + height, width/2, height/2); 
+         delay(10000);
+         drawSquares(g, xPos - (width/2), yPos + height, width/2, height/2, 2); }
+      }
+    
+      if(sqNum != 3) 
+      {
+         if(height<=1) {
+         g.setColor(Color.YELLOW);
+         g.fillRect(xPos + width, yPos + height, width/2, height/2); }
+         else {
+         g.setColor(Color.YELLOW);
+         g.fillRect(xPos + width, yPos + height, width/2, height/2);
+         delay(10000);
+         drawSquares(g, xPos + width, yPos + height, width/2, height/2, 3); }
+      }
+   
+   }
+
+}
+
+
